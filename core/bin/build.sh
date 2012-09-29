@@ -18,16 +18,6 @@ then
     exit 1
 fi
 
-#                               Cleanup
-#                               =======
-
-#mvn clean
-
-#                         Compile java classes
-#                         ====================
-
-#mvn package
-
 #                           Get all the jars
 #                           ================
 
