@@ -1,0 +1,8 @@
+<aspectj>
+	<aspects>
+		<concrete-aspect name="aspectum.AspectumImpl" extends="aspectum.Aspectum">
+			<pointcut name="aspectum"
+				expression="within(sample..*) &amp;&amp; execution(* *(..))" />
+		</concrete-aspect>
+	</aspects>
+</aspectj>
