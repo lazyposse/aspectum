@@ -2,7 +2,7 @@
 	<aspects>
 		<concrete-aspect name="aspectum.AspectumImpl" extends="aspectum.Aspectum">
 			<pointcut name="aspectum"
-				expression="within(sample..*) &amp;&amp; execution(* *(..))" />
+				expression="within(aspectum.sampleapp..*) &amp;&amp; execution(* *(..))" />
 		</concrete-aspect>
 	</aspects>
 </aspectj>
