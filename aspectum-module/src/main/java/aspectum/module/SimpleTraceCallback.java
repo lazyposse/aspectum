@@ -1,13 +1,15 @@
-package aspectum;
+package aspectum.module;
 
-public class CallbackImpl implements Callback {
+import aspectum.Callback;
+
+public class SimpleTraceCallback implements Callback {
 
 	private int depth = 0;
 
 	@SuppressWarnings("rawtypes")
 	@Override
 	public void before(Thread t, Class type, String methodName, Object[] args) {
-		prn(indent(type + "." + methodName, depth));
+		prn(indent(type.getName() + "." + methodName, depth));
 		depth++;
 	}
 
@@ -26,13 +28,13 @@ public class CallbackImpl implements Callback {
 	}
 
 	private void prn(String msg) {
-		System.out.println(msg);
+		System.out.println("aspectum-sample-module> " + msg);
 	}
 
 	private String indent(String msg, int depth) {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < depth; i++) {
-			sb.append("\t");
+			sb.append("...");
 		}
 		sb.append(msg);
 		return sb.toString();
