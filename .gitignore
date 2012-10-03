@@ -1,3 +1,6 @@
-core/target
+target
+aspectum-api/target
+aspectum-core/target
+aspectum-module/target
 *.jar
 *.class
