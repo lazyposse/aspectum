@@ -1,5 +1,5 @@
 
-* TODO todo [0%]
+* TODO todo [33%]
 
 ** TODO core [0%]
 
@@ -11,3 +11,9 @@ CLOSED: [2012-10-03 Wed 08:06]
 **** TODO add the current time to the api
 
 ** TODO modules [%]
+
+** DONE transverse [100%]
+CLOSED: [2012-10-03 Wed 09:26]
+
+*** DONE script to upgrade the project version
+CLOSED: [2012-10-03 Wed 09:26]
