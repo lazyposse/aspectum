@@ -13,12 +13,28 @@ CLOSED: [2012-10-03 Wed 08:06]
 **** DONE add the current time to the api
 CLOSED: [2012-10-04 Thu 08:19]
 
-** TODO modules [%]
+** TODO modules [0%]
 
-*** TODO aspectum-perf-module
+*** IN-PROGRESS aspectum-perf-module [50%]
 
-** DONE transverse [100%]
+**** DONE first implem of the perf module
+CLOSED: [2012-10-04 Thu 10:27]
+
+**** TODO transverse [0%]
+***** TODO rename MethodTimeCallback
+
+traceTime
+
+the name is awfull!
+
+***** TODO find a way to not overwrite the out file
+
+***** TODO how to flush at the end
+
+***** TODO upgrade the version to 0.0.3
+** DONE transverse [50%]
 CLOSED: [2012-10-03 Wed 09:26]
 
 *** DONE script to upgrade the project version
 CLOSED: [2012-10-03 Wed 09:26]
+
