@@ -47,28 +47,31 @@ public @Aspect abstract class Aspectum {
 
     @Before(value = "aspectum()", argNames = "joinPoint")
     public void before(JoinPoint joinPoint) {
+        long nanoTime = System.nanoTime();
         if (cb == null) {
             return;
         }
         Signature s = joinPoint.getSignature();
-        cb.before(Thread.currentThread(), s.getDeclaringType(), s.getName(), joinPoint.getArgs());
+        cb.before(nanoTime, Thread.currentThread(), s.getDeclaringType(), s.getName(), joinPoint.getArgs());
     }
 
     @AfterReturning(pointcut = "aspectum()", returning = "ret", argNames = "joinPoint,ret")
     public void afterReturning(JoinPoint joinPoint, Object ret) {
+        long nanoTime = System.nanoTime();
         if (cb == null) {
             return;
         }
         Signature s = joinPoint.getSignature();
-        cb.afterReturning(Thread.currentThread(), s.getDeclaringType(), s.getName(), ret);
+        cb.afterReturning(nanoTime, Thread.currentThread(), s.getDeclaringType(), s.getName(), ret);
     }
 
     @AfterThrowing(pointcut = "aspectum()", throwing = "t", argNames = "joinPoint,t")
     public void afterThrowing(JoinPoint joinPoint, Throwable t) {
+        long nanoTime = System.nanoTime();
         if (cb == null) {
             return;
         }
         Signature s = joinPoint.getSignature();
-        cb.afterThrowing(Thread.currentThread(), s.getDeclaringType(), s.getName(), t);
+        cb.afterThrowing(nanoTime, Thread.currentThread(), s.getDeclaringType(), s.getName(), t);
     }
 }

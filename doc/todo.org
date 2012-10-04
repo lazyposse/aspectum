@@ -1,16 +1,21 @@
 
-* TODO todo [33%]
+* TODO todo [50%]
 
-** TODO core [0%]
+** DONE core [100%]
+CLOSED: [2012-10-04 Thu 08:20]
 
-*** IN-PROGRESS add the current time to the api
+*** DONE v0.0.2 add the current time to the api
+CLOSED: [2012-10-04 Thu 08:20]
 
 **** DONE refactor api java code
 CLOSED: [2012-10-03 Wed 08:06]
 
-**** TODO add the current time to the api
+**** DONE add the current time to the api
+CLOSED: [2012-10-04 Thu 08:19]
 
 ** TODO modules [%]
+
+*** TODO aspectum-perf-module
 
 ** DONE transverse [100%]
 CLOSED: [2012-10-03 Wed 09:26]
