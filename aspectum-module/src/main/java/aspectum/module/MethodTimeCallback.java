@@ -20,10 +20,22 @@ public class MethodTimeCallback implements Callback {
         o                  = new BufferedWriter(fstream);
 
         writeHeader();
+        closeOnShutdown();
     }
 
-    void writeHeader() throws Exception {
+    private final void writeHeader() throws Exception {
         o.write("(B)efore/after(R)eturning/after(T)hrowing,nanoTime,class,method\n");
+    }
+
+    void closeOnShutdown() throws Exception {
+        // To avoid losing unflushed data
+        Runtime.getRuntime().addShutdownHook(new Thread() { public void run() {
+            try {
+                o.close();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }});
     }
 
     @Override
@@ -48,8 +60,6 @@ public class MethodTimeCallback implements Callback {
         o.write(',');
         o.write(methodName);
         o.write('\n');
-
-        o.flush();
     }
 
     @Override
@@ -62,13 +72,5 @@ public class MethodTimeCallback implements Callback {
         o.write(',');
         o.write(methodName);
         o.write('\n');
-
-        o.flush();
-    }
-
-    @Override
-    public void finalize  () throws Exception {
-        o.flush();
-        o.close();
     }
 }

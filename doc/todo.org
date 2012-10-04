@@ -21,6 +21,7 @@ CLOSED: [2012-10-04 Thu 08:19]
 CLOSED: [2012-10-04 Thu 10:27]
 
 **** TODO transverse [0%]
+
 ***** TODO rename MethodTimeCallback
 
 traceTime
@@ -29,9 +30,13 @@ the name is awfull!
 
 ***** TODO find a way to not overwrite the out file
 
-***** TODO how to flush at the end
+***** TODO how to flush at the end [100%]
+
+****** DONE trying with a shutdown hook
+CLOSED: [2012-10-04 Thu 14:39]
 
 ***** TODO upgrade the version to 0.0.3
+
 ** DONE transverse [50%]
 CLOSED: [2012-10-03 Wed 09:26]
 
