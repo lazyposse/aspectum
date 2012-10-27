@@ -15,7 +15,7 @@ CLOSED: [2012-10-04 Thu 08:19]
 
 ** TODO modules [0%]
 
-*** IN-PROGRESS aspectum-perf-module [75%]
+*** IN-PROGRESS aspectum-perf-module [60%]
 
 **** DONE First implem of the perf module
 CLOSED: [2012-10-04 Thu 10:27]
@@ -26,6 +26,9 @@ CLOSED: [2012-10-05 Fri 17:38]
 
 **** DONE Find the total number of intercepted methods
 CLOSED: [2012-10-05 Fri 17:56]
+
+**** IN-PROGRESS A script to run aspectum on the user application [%]
+
 
 **** TODO Transverse [25%]
 
@@ -43,7 +46,6 @@ CLOSED: [2012-10-05 Fri 08:09]
 ****** DONE trying with a shutdown hook
 CLOSED: [2012-10-04 Thu 14:39]
 
-***** TODO upgrade the version to 0.0.3
 
 
 ** DONE transverse [50%]
@@ -51,4 +53,3 @@ CLOSED: [2012-10-03 Wed 09:26]
 
 *** DONE script to upgrade the project version
 CLOSED: [2012-10-03 Wed 09:26]
-
