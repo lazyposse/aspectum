@@ -15,12 +15,19 @@ CLOSED: [2012-10-04 Thu 08:19]
 
 ** TODO modules [0%]
 
-*** IN-PROGRESS aspectum-perf-module [50%]
+*** IN-PROGRESS aspectum-perf-module [75%]
 
-**** DONE first implem of the perf module
+**** DONE First implem of the perf module
 CLOSED: [2012-10-04 Thu 10:27]
 
-**** TODO transverse [0%]
+
+**** DONE Add the overhead time
+CLOSED: [2012-10-05 Fri 17:38]
+
+**** DONE Find the total number of intercepted methods
+CLOSED: [2012-10-05 Fri 17:56]
+
+**** TODO Transverse [25%]
 
 ***** TODO rename MethodTimeCallback
 
@@ -30,12 +37,14 @@ the name is awfull!
 
 ***** TODO find a way to not overwrite the out file
 
-***** TODO how to flush at the end [100%]
+***** DONE how to flush at the end [100%]
+CLOSED: [2012-10-05 Fri 08:09]
 
 ****** DONE trying with a shutdown hook
 CLOSED: [2012-10-04 Thu 14:39]
 
 ***** TODO upgrade the version to 0.0.3
+
 
 ** DONE transverse [50%]
 CLOSED: [2012-10-03 Wed 09:26]

@@ -24,7 +24,11 @@ public class MethodTimeCallback implements Callback {
     }
 
     private final void writeHeader() throws Exception {
-        o.write("(B)efore/after(R)eturning/after(T)hrowing,nanoTime,class,method\n");
+        o.write("(B)efore/after(R)eturning/after(T)hrowing," +
+                "class,"                                     +
+                "method,"                                    +
+                "before recording nanoTime,"                 +
+                "after recording nanoTime\n"               );
     }
 
     void closeOnShutdown() throws Exception {
@@ -42,11 +46,13 @@ public class MethodTimeCallback implements Callback {
     public void before         (long nanoTime, Thread t, Class type, String methodName, Object[] args) throws Exception {
         o.write('B');
         o.write(',');
-        o.write(Long.toString(nanoTime));
-        o.write(',');
         o.write(type.getName());
         o.write(',');
         o.write(methodName);
+        o.write(',');
+        o.write(Long.toString(nanoTime));
+        o.write(',');
+        o.write(Long.toString(System.nanoTime()));
         o.write('\n');
     }
 
@@ -54,11 +60,13 @@ public class MethodTimeCallback implements Callback {
     public void afterReturning (long nanoTime, Thread t, Class type, String methodName, Object returnValue) throws Exception {
         o.write('R');
         o.write(',');
-        o.write(Long.toString(nanoTime));
-        o.write(',');
         o.write(type.getName());
         o.write(',');
         o.write(methodName);
+        o.write(',');
+        o.write(Long.toString(nanoTime));
+        o.write(',');
+        o.write(Long.toString(System.nanoTime()));
         o.write('\n');
     }
 
@@ -66,11 +74,13 @@ public class MethodTimeCallback implements Callback {
     public void afterThrowing  (long nanoTime, Thread t, Class type, String methodName, Throwable th) throws Exception {
         o.write('T');
         o.write(',');
-        o.write(Long.toString(nanoTime));
-        o.write(',');
         o.write(type.getName());
         o.write(',');
         o.write(methodName);
+        o.write(',');
+        o.write(Long.toString(nanoTime));
+        o.write(',');
+        o.write(Long.toString(System.nanoTime()));
         o.write('\n');
     }
 }
