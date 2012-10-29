@@ -15,7 +15,7 @@ CLOSED: [2012-10-04 Thu 08:19]
 
 ** TODO modules [0%]
 
-*** IN-PROGRESS aspectum-perf-module [60%]
+*** IN-PROGRESS aspectum-perf-module [57%]
 
 **** DONE First implem of the perf module
 CLOSED: [2012-10-04 Thu 10:27]
@@ -27,8 +27,27 @@ CLOSED: [2012-10-05 Fri 17:38]
 **** DONE Find the total number of intercepted methods
 CLOSED: [2012-10-05 Fri 17:56]
 
-**** IN-PROGRESS A script to run aspectum on the user application [%]
+**** DONE A script to run aspectum on the user application [%]
+CLOSED: [2012-10-29 Mon 18:21]
 
+
+**** IN-PROGRESS Implements multithreaded captures [25%]
+
+***** DONE Find out if we have to use a map or an array
+CLOSED: [2012-10-29 Mon 18:27]
+
+At first use an hashmap (be on the safe side)
+
+***** TODO Use =~/.am-perf= folder instead of the file [33%]
+
+****** DONE factorize write to file
+CLOSED: [2012-10-29 Mon 18:35]
+
+
+****** TODO abstract the obtention of the outputstream
+
+****** TODO get or create the outputstream based on the thread id
+***** TODO Implements in code
 
 **** TODO Transverse [25%]
 
