@@ -1,5 +1,6 @@
 package aspectum.module;
 
+import java.io.Writer;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import aspectum.Callback;
@@ -42,7 +43,13 @@ public class MethodTimeCallback implements Callback {
         }});
     }
 
+    private final Writer getWriter() {
+        return this.o;
+    }
+
     private final void write(char kind, long nanoTime, Thread t, Class type, String methodname) {
+        final Writer o = getWriter();
+
         o.write(kind);
         o.write(',');
         o.write(type.getName());

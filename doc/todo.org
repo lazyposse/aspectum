@@ -38,13 +38,14 @@ CLOSED: [2012-10-29 Mon 18:27]
 
 At first use an hashmap (be on the safe side)
 
-***** TODO Use =~/.am-perf= folder instead of the file [33%]
+***** TODO Use =~/.am-perf= folder instead of the file [66%]
 
 ****** DONE factorize write to file
 CLOSED: [2012-10-29 Mon 18:35]
 
 
-****** TODO abstract the obtention of the outputstream
+****** DONE abstract the obtention of the outputstream
+CLOSED: [2012-10-29 Mon 19:08]
 
 ****** TODO get or create the outputstream based on the thread id
 ***** TODO Implements in code
