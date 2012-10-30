@@ -8,21 +8,21 @@ public class SimpleTraceCallback implements Callback {
 
 	@SuppressWarnings("rawtypes")
 	@Override
-	public void before(Thread t, Class type, String methodName, Object[] args) {
+	public void before(long nanoTime, Thread t, Class type, String methodName, Object[] args) {
 		prn(indent(type.getName() + "." + methodName, depth));
 		depth++;
 	}
 
 	@SuppressWarnings("rawtypes")
 	@Override
-	public void afterReturning(Thread t, Class type, String methodName,
+	public void afterReturning(long nanoTime, Thread t, Class type, String methodName,
 			Object returnValue) {
 		depth--;
 	}
 
 	@SuppressWarnings("rawtypes")
 	@Override
-	public void afterThrowing(Thread t, Class type, String methodName,
+	public void afterThrowing(long nanoTime, Thread t, Class type, String methodName,
 			Throwable th) {
 		depth--;
 	}
