@@ -14,5 +14,5 @@ AGENT=./aspectum-module/target/dependency/aspectjweaver-1.7.0.jar
 
 java -javaagent:"$AGENT"                                    \
     -cp "$CP"                                               \
-    -Daspectum.callback=aspectum.module.SimpleTraceCallback \
+    -Daspectum.callback=aspectum.module.MethodTimeCallback  \
     aspectum.sampleapp.SampleApplication
