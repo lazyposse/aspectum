@@ -1,8 +1,14 @@
 package aspectum.module;
 
-import java.io.Writer;
+import java.util.concurrent.ConcurrentHashMap;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.File;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import aspectum.Callback;
 
 /**
@@ -13,42 +19,62 @@ import aspectum.Callback;
  */
 public class MethodTimeCallback implements Callback {
 
-    BufferedWriter o;
+    private final ConcurrentHashMap<Long, BufferedWriter> threadsToWriters = new ConcurrentHashMap<Long, BufferedWriter>();
+
+    private final String sessionDir = System.getProperty("user.home") + "/.am-perf/" + (new SimpleDateFormat("yyyyMMdd-kk'h'mm'm'ss's'").format(new Date()));
 
     public MethodTimeCallback() throws Exception {
-        String s           = System.getProperty("user.home") + "/measure.tracetime";
-        FileWriter fstream = new FileWriter(s);
-        o                  = new BufferedWriter(fstream);
-
-        writeHeader();
+        createSessionDir();
         closeOnShutdown();
     }
 
-    private final void writeHeader() throws Exception {
-        o.write("(B)efore/after(R)eturning/after(T)hrowing," +
-                "class,"                                     +
-                "method,"                                    +
-                "before recording nanoTime,"                 +
-                "after recording nanoTime\n"               );
+    private final void createSessionDir() throws Exception {
+        (new File(sessionDir)).mkdirs();
     }
 
-    void closeOnShutdown() throws Exception {
+    private final void closeOnShutdown() throws Exception {
         // To avoid losing unflushed data
         Runtime.getRuntime().addShutdownHook(new Thread() { public void run() {
-            try {
-                o.close();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
+            for (BufferedWriter w : threadsToWriters.values()) {
+                closeWriter(w);
             }
         }});
     }
 
-    private final Writer getWriter() {
-        return this.o;
+    private final void closeWriter(BufferedWriter w) {
+            try {
+                w.close();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
     }
 
-    private final void write(char kind, long nanoTime, Thread t, Class type, String methodname) {
-        final Writer o = getWriter();
+    private final BufferedWriter getWriter(long threadId) throws Exception {
+        BufferedWriter w = new BufferedWriter(new FileWriter(sessionDir + "/thread-" + threadId + ".csv"));
+        writeHeader(w);
+        return w;
+    }
+
+    private final void writeHeader(BufferedWriter w) throws Exception {
+        w.write("(B)efore/after(R)eturning/after(T)hrowing," +
+                "class,"                                     +
+                "method,"                                    +
+                "before recording nanoTime,"                 +
+                "after recording nanoTime\n"                 );
+    }
+
+    private final BufferedWriter getWriter() throws Exception {
+        final Long tid = Long.valueOf(Thread.currentThread().getId());
+        BufferedWriter w = threadsToWriters.get(tid);
+        if (w == null) {
+            w = getWriter(tid);
+            threadsToWriters.put(tid, w);
+        }
+        return w;
+    }
+
+    private final void write(char kind, long nanoTime, Thread t, Class type, String methodName) throws Exception {
+        final BufferedWriter o = getWriter();
 
         o.write(kind);
         o.write(',');
@@ -64,16 +90,16 @@ public class MethodTimeCallback implements Callback {
 
     @Override
     public void before         (long nanoTime, Thread t, Class type, String methodName, Object[] args) throws Exception {
-        write('B');
+        write('B', nanoTime, t, type, methodName);
     }
 
     @Override
     public void afterReturning (long nanoTime, Thread t, Class type, String methodName, Object returnValue) throws Exception {
-        write('R');
+        write('R', nanoTime, t, type, methodName);
     }
 
     @Override
     public void afterThrowing  (long nanoTime, Thread t, Class type, String methodName, Throwable th) throws Exception {
-        write('T');
+        write('T', nanoTime, t, type, methodName);
     }
 }

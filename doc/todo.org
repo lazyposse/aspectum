@@ -15,7 +15,7 @@ CLOSED: [2012-10-04 Thu 08:19]
 
 ** TODO modules [0%]
 
-*** IN-PROGRESS aspectum-perf-module [57%]
+*** IN-PROGRESS aspectum-perf-module [71%]
 
 **** DONE First implem of the perf module
 CLOSED: [2012-10-04 Thu 10:27]
@@ -31,14 +31,16 @@ CLOSED: [2012-10-05 Fri 17:56]
 CLOSED: [2012-10-29 Mon 18:21]
 
 
-**** IN-PROGRESS Implements multithreaded captures [25%]
+**** DONE Implements multithreaded captures [100%]
+CLOSED: [2012-10-30 Tue 09:42]
 
 ***** DONE Find out if we have to use a map or an array
 CLOSED: [2012-10-29 Mon 18:27]
 
 At first use an hashmap (be on the safe side)
 
-***** TODO Use =~/.am-perf= folder instead of the file [66%]
+***** DONE Use =~/.am-perf= folder instead of the file [100%]
+CLOSED: [2012-10-30 Tue 09:42]
 
 ****** DONE factorize write to file
 CLOSED: [2012-10-29 Mon 18:35]
@@ -47,9 +49,14 @@ CLOSED: [2012-10-29 Mon 18:35]
 ****** DONE abstract the obtention of the outputstream
 CLOSED: [2012-10-29 Mon 19:08]
 
-****** TODO get or create the outputstream based on the thread id
-***** TODO Implements in code
+****** DONE get or create the outputstream based on the thread id
+CLOSED: [2012-10-30 Tue 09:42]
 
+***** DONE Implements in code
+CLOSED: [2012-10-30 Tue 09:42]
+
+
+**** IN-PROGRESS test for possible regressions
 **** TODO Transverse [25%]
 
 ***** TODO rename MethodTimeCallback
@@ -73,3 +80,6 @@ CLOSED: [2012-10-03 Wed 09:26]
 
 *** DONE script to upgrade the project version
 CLOSED: [2012-10-03 Wed 09:26]
+
+
+*** TODO remove the =@Overide= annote in the module timetrace
