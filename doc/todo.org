@@ -13,9 +13,10 @@ CLOSED: [2012-10-03 Wed 08:06]
 **** DONE add the current time to the api
 CLOSED: [2012-10-04 Thu 08:19]
 
-** TODO modules [0%]
+** TODO modules [100%]
 
-*** IN-PROGRESS aspectum-perf-module [71%]
+*** DONE aspectum-perf-module [85%]
+CLOSED: [2012-10-30 Tue 10:03]
 
 **** DONE First implem of the perf module
 CLOSED: [2012-10-04 Thu 10:27]
@@ -56,7 +57,8 @@ CLOSED: [2012-10-30 Tue 09:42]
 CLOSED: [2012-10-30 Tue 09:42]
 
 
-**** IN-PROGRESS test for possible regressions
+**** DONE test for possible regressions
+CLOSED: [2012-10-30 Tue 10:02]
 **** TODO Transverse [25%]
 
 ***** TODO rename MethodTimeCallback
